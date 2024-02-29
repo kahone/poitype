@@ -13,6 +13,10 @@
 
 add_action('init', function ()
 {
+    $gmap_api_key_key = 'poitype-gmap-api-key';
+    add_option( $gmap_api_key_key );
+
+
     $labels = [
         'name'                  => __('Poitypes', 'poitype'),
         'singular_name'         => __('Poitype', 'poitype'),
@@ -75,7 +79,7 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
                 'type'    => 'map',
                 'name'    => esc_html__( 'LonLat', 'online-generator' ),
                 'id'      => $prefix . 'lonlat',
-                'api_key' => get_option('poitype-gmap-api-key'),
+                'api_key' => get_option( $gmap_api_key_key ),
                 'region'  => 'fi',
             ],
             [
