@@ -62,3 +62,38 @@ add_action( 'add_meta_boxes', function () {
 
 } );
 
+add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
+    $prefix = 'poitype_';
+
+    $meta_boxes[] = [
+        'title'   => esc_html__( 'Location data', 'online-generator' ),
+        'id'      => 'poidata_locations',
+        'context' => 'normal',
+        'fields'  => [
+            [
+                'type'    => 'map',
+                'name'    => esc_html__( 'LonLat', 'online-generator' ),
+                'id'      => $prefix . 'lonlat',
+                'api_key' => 'AIzaSyDqkyyAuwNBD3Y8aZ3ikdZphxe034iVmZQ',
+                'region'  => 'fi',
+            ],
+            [
+                'type'       => 'taxonomy',
+                'name'       => esc_html__( 'Kategoria', 'online-generator' ),
+                'id'         => $prefix . 'kategoria',
+                'taxonomy'   => 'category',
+                'field_type' => 'select_tree',
+            ],
+            [
+                'type'       => 'taxonomy',
+                'name'       => esc_html__( 'Avainsana', 'online-generator' ),
+                'id'         => $prefix . 'avainsana',
+                'taxonomy'   => 'post_tag',
+                'field_type' => 'select_advanced',
+            ],
+        ],
+    ];
+
+    return $meta_boxes;
+} );
+
