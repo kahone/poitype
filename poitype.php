@@ -35,7 +35,7 @@ add_action('init', function ()
         'hierarchical'          => true,
         'taxonomies'            => array( 'category', 'post_tag' ),
         'description'           => __('Poi', 'poitype'),
-        'supports'              => ['title', 'editor', 'comments'],
+        'supports'              => ['title', 'editor', 'comments', 'thumbnail'],
         'public'                => true,
         'show_ui'               => true,
         'show_in_nav_menus'     => true,
@@ -44,7 +44,8 @@ add_action('init', function ()
         'has_archive'           => true,
         'query_var'             => true,
         'can_export'            => true,
-        'rewrite'               => true,
+        'rewrite'               => array('slug' => 'poi'),
+        'show_in_rest'          => true,
         'capability_type'       => 'post'
     ];
 
