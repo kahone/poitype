@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Wordpress Pois
  * Description: Poi and Answer interface for developers
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Kristian Ahonen
  * Author URI: https://github.com/kahone
  * Text Domain: poitype
@@ -67,8 +67,9 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
 
     $meta_boxes[] = [
         'title'   => esc_html__( 'Location data', 'online-generator' ),
-        'id'      => 'poidata_locations',
-        'context' => 'normal',
+        'id'         => 'field_group_location',
+        'post_types' => ['poitype'],
+        'context'    => 'after_title',
         'fields'  => [
             [
                 'type'    => 'map',
