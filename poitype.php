@@ -83,14 +83,14 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
                 'name'       => esc_html__( 'Kategoria', 'online-generator' ),
                 'id'         => $prefix . 'kategoria',
                 'taxonomy'   => 'category',
-                'field_type' => 'select_tree',
+                'field_type' => 'select',
             ],
             [
                 'type'       => 'taxonomy',
                 'name'       => esc_html__( 'Avainsana', 'online-generator' ),
                 'id'         => $prefix . 'avainsana',
                 'taxonomy'   => 'post_tag',
-                'field_type' => 'select_advanced',
+                'field_type' => 'select',
             ],
         ],
     ];
