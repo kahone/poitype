@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Wordpress Pois
  * Description: Poi and Answer interface for developers
- * Version: 1.0.5
+ * Version: 1.0.6
  * Author: Kristian Ahonen
  * Author URI: https://github.com/kahone
  * Text Domain: poitype
