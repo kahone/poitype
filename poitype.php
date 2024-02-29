@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Wordpress Pois
  * Description: Poi and Answer interface for developers
- * Version: 1.0.7
+ * Version: 1.0.8
  * Author: Kristian Ahonen
  * Author URI: https://github.com/kahone
  * Text Domain: poitype
@@ -74,4 +74,18 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
 
     return $meta_boxes;
 } );
+
+
+add_filter( 'use_block_editor_for_post_type', function ( $current_status, $post_type ) {
+
+    // Disabled post types
+    $disabled_post_types = array( 'poitype' );
+
+    // Change $can_edit to false for any post types in the disabled post types array
+    if ( in_array( $post_type, $disabled_post_types, true ) ) {
+        $current_status = false;
+    }
+
+    return $current_status;
+}, 10, 2 );
 
