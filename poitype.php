@@ -13,9 +13,7 @@
 
 add_action('init', function ()
 {
-    $gmap_api_key_key = 'poitype-gmap-api-key';
-    add_option( $gmap_api_key_key );
-
+    add_option( 'poitype-gmap-api-key' );
 
     $labels = [
         'name'                  => __('Poitypes', 'poitype'),
@@ -54,19 +52,6 @@ add_action('init', function ()
 });
 
 
-add_action( 'add_meta_boxes', function () {
-
-    add_meta_box(
-        'poitype_lonlat',                 // Unique ID
-        'Koordinate setter',      // Box title
-        function(){
-            echo "Koordinate selector";
-        },
-        'poitype'
-    );
-
-} );
-
 add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
     $prefix = 'poitype_';
 
@@ -80,7 +65,7 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
                 'type'    => 'map',
                 'name'    => esc_html__( 'LonLat', 'online-generator' ),
                 'id'      => $prefix . 'lonlat',
-                'api_key' => get_option( $gmap_api_key_key ),
+                'api_key' => get_option( 'poitype-gmap-api-key' ),
                 'region'  => 'fi',
             ],
         ],
