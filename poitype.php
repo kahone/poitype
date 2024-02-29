@@ -75,7 +75,7 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
                 'type'    => 'map',
                 'name'    => esc_html__( 'LonLat', 'online-generator' ),
                 'id'      => $prefix . 'lonlat',
-                'api_key' => 'AIzaSyDqkyyAuwNBD3Y8aZ3ikdZphxe034iVmZQ',
+                'api_key' => get_option('poitype-gmap-api-key'),
                 'region'  => 'fi',
             ],
             [
