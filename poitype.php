@@ -11,9 +11,7 @@
  * GitHub Branch:     main
  */
 
-add_action('init', 'poi_register_type');
-
-function poi_register_type()
+add_action('init', function ()
 {
     $labels = [
         'name'                  => __('Poitypes', 'poitype'),
@@ -48,4 +46,19 @@ function poi_register_type()
     ];
 
     register_post_type('poitype', $args);
-}
+});
+
+
+add_action( 'add_meta_boxes', function () {
+
+    add_meta_box(
+        'poitype_lonlat',                 // Unique ID
+        'Koordinate setter',      // Box title
+        function(){
+            echo "Koordinate selector";
+        },
+        'poitype'
+    );
+
+} );
+
